@@ -2,12 +2,10 @@
 
 MoneyCalc
 
-<p>MoneyCalc is a simple web application for personal financial management.</p>
+MoneyCalc is a simple web application for personal financial management.
 
 MoneyCalc's basic functionalities:
-<ul>
-	<li>Entering data about expenses and incomes</li>
-	<li>Editing expenses/incomes records</li>
-	<li>Adjustment of balances</li>
-	<li>Accounts support</li>
-</ul>
+ - Entering data about expenses and incomes
+ - Editing expenses/incomes records
+ - Adjustment of balances
+ - Accounts support
