@@ -1,5 +1,5 @@
 Moneycalc::Application.routes.draw do
-  get "static_pages/about"
+  get "/about" => "static_pages#about"
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

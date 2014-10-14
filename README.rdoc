@@ -1,6 +1,4 @@
-== README
-
-MoneyCalc
+== MoneyCalc
 
 MoneyCalc is a simple web application for personal financial management.
 
