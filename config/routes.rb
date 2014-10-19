@@ -1,12 +1,20 @@
 Moneycalc::Application.routes.draw do
-  get "/about" => "static_pages#about"
-  resources :users
+  get 'about' => 'staic_pages#about'
+  devise_for :users
+  resources :users, except: [ :new, :create ]
 
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new", :as => :sign_in
+    get "sign_out", :to => "devise/sessions#destroy", :as => :sign_out
+    get "sign_up", :to => "devise/registrations#new", :as => :sign_up
+  end
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'staic_pages#home'             
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,9 @@
+<div class="center hero-unit">
+  <h1>Welcome to the MoneyCalc</h1>
+
+  <% if current_user %>
+  	<h2>Hello <%= current_user.name %>!</h2>
+  <%else%>
+  	<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
