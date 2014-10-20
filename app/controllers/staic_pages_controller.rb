@@ -3,6 +3,6 @@ class StaicPagesController < ApplicationController
   end
 
   def about
-  	@users_count = User.count
+  	@users = User.all
   end
 end

@@ -9,4 +9,9 @@
 	<li>Accounts support</li>
 </ul>
 
-<p>Users count: <%= @users_count %></p>
+<% if current_user %>
+	<h1>Listing users</h1>
+	<%= render 'layouts/users_list' %>
+<% else%>
+	<p>Users count: <%= @users.count %></p>
+<% end%>
