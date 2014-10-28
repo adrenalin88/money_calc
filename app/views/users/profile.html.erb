@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 <% if current_user %>
 	<%= render 'info' %>
-	<%= link_to 'Transactions', transactions_path %> 
-	<%= link_to 'Edit', edit_user_path(@user) %>
+	<%= link_to 'Edit user info', edit_user_path(@user) %> | 
+	<%= link_to 'Manage transactions', transactions_path %> 
+	
 <% else %>
 	<%= render 'layouts/sign_in_sign_up' %>
 <% end %>
