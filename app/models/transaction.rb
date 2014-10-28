@@ -3,7 +3,7 @@ class Transaction < ActiveRecord::Base
   validates :amount, presence: true
 
   after_create :inc_ballance
-  before_destroy :dec_ballance
+  after_destroy :dec_ballance
 
   private
 

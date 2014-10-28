@@ -1,6 +1,7 @@
 <% if @user.transactions.any?%>
-  <h1>Listing transaction</h1>
+  <h1>Listing transactions</h1>
   <%= render 'list' %>
+  <h3>Balance: <%= @user.balance %></h3>
 <% else %>
   <h1>Transactions not found...</h1>
 <% end %>

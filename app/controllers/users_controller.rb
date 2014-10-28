@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin, only: [:edit, :update, :destroy]
+  before_action :check_if_admin, only: [:destroy]
+  before_action :check_user, only: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -53,6 +54,10 @@ class UsersController < ApplicationController
 
     def check_if_admin
       render text: "Acsess denied", status: 403 unless current_user.admin?
+    end
+
+    def check_user
+      render text: "Acsess denied", status: 403 unless current_user.id == @user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
