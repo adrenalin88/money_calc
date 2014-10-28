@@ -1,0 +1,9 @@
+<% if @user.transactions.any?%>
+  <h1>Listing transaction</h1>
+  <%= render 'list' %>
+<% else %>
+  <h1>Transactions not found...</h1>
+<% end %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'Create new transaction', new_user_transaction_path(user_id: @user.id)%>
+<% end %>

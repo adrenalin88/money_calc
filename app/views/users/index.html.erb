@@ -1,2 +1,6 @@
-<h1>Listing users</h1>
-<%= render 'layouts/users_list' %>
+<% if current_user %>
+	<h1>Listing users</h1>
+	<%= render 'layouts/users_list' %>
+<% else %>
+	<%= render 'layouts/sign_in_sign_up' %>
+<% end %>

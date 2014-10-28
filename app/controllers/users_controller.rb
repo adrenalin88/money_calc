@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -10,6 +11,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+
+  def profile
+    @user = current_user
   end
 
   # GET /users/1/edit
@@ -44,6 +49,10 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def check_if_admin
+      render text: "Acsess denied", status: 403 unless current_user.admin?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Created</th>
+      <th>Amount</th>
+      <th>Comment</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at.strftime("%m/%d/%Y (%I:%M%p)") %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.comment%></td>
+        <td><%= link_to 'Destroy', user_transaction_path(transaction.user_id, transaction.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -11,15 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128091417) do
+ActiveRecord::Schema.define(version: 20141028162639) do
+
+  create_table "transactions", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.float    "amount",     null: false
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email",               default: "", null: false
+    t.string   "email",               default: "",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "encrypted_password",  default: "",    null: false
     t.datetime "remember_created_at"
+    t.float    "balance",             default: 0.0
+    t.boolean  "admin",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

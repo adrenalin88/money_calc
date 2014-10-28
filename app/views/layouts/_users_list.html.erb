@@ -3,10 +3,13 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Balance</th>
       <th>Registration</th>
       <th></th>
-      <th></th>
-      <th></th>
+      <% if current_user.admin? %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -15,10 +18,13 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.balance %></td>
         <td><%= user.created_at.strftime("%m/%d/%Y (%I:%M%p)")%></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
