@@ -13,7 +13,7 @@
         <%= link_to "Moneycalc", root_path, id: "logo" %>
         <nav>
           <ul class="nav pull-right">
-            <% if I18n.locale == I18n.default_locale %>
+            <% if I18n.locale == :en %>
               <li><%= link_to image_tag("ru.png"), :locale=>'ru'%></li>
 
             <% else %>
