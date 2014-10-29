@@ -1,13 +1,18 @@
-<div class="center hero-unit">
+<% if @user %>
+  <div>  
+    <p>Hello <%= @user.name %>!</p>
+    <p>Balance: <%= @user.balance %></p>
+    <%= render 'transactions/list' %>
+    <%= link_to "Add new transaction", new_user_transaction_path(@user.id) %>
+  </div>
+<%else%>
+  <div class="center hero-unit">
   <h1>Welcome to the MoneyCalc</h1>
 
-  <% if current_user %>
-  	<h2>Hello <%= current_user.name %>!</h2>
-  <%else%>
-  	<%= link_to "Sign in", sign_in_path, class: "btn btn-large btn-primary" %>
-  	<br/>
-  	or
-  	<br/>
-  	<%= link_to "Sign up now!", sign_up_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "Sign in", sign_in_path, class: "btn btn-large btn-primary" %>
+  <br/>
+  or
+  <br/>
+  <%= link_to "Sign up now!", sign_up_path, class: "btn btn-large btn-primary" %>
   <% end %>
 </div>

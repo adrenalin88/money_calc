@@ -4,6 +4,9 @@ class TransactionsController < ApplicationController
 
   def index
     @user = params[:user_id] ? User.find_by_id(params[:user_id]) : current_user
+    if @user
+      @transactions = @user.transactions.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+    end
   end
 
   def new
@@ -12,12 +15,12 @@ class TransactionsController < ApplicationController
 
   def create
   	@transaction = current_user.transactions.create(transaction_params)
-  	redirect_to user_transactions_path
+  	redirect_to root_path
   end
 
   def destroy
   	@transaction.destroy
-  	redirect_to user_transactions_path
+  	redirect_to root_path
   end
 
   private

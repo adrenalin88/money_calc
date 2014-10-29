@@ -1,7 +1,7 @@
 Moneycalc::Application.routes.draw do
   get 'about' => 'staic_pages#about'
-  get 'profile' => 'users#profile'
-  get 'transactions' => 'transactions#index'
+  #get 'profile' => 'users#profile'
+  #get 'transactions' => 'transactions#index'
   devise_for :users
   resources :users, except: [ :new, :create ] do
     resources :transactions, only: [ :index, :new, :create, :destroy ]
