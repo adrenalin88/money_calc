@@ -4,10 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_register_parameters, if: :devise_controller?
-
+  
+  before_action :set_locale
+ 
   protected
 
-  def configure_register_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-  end
+	  def configure_register_parameters
+	    devise_parameter_sanitizer.for(:sign_up) << :name
+	  end
+	  def set_locale
+	    I18n.locale = params[:locale] || I18n.default_locale
+	  end
 end

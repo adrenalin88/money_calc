@@ -19,15 +19,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello"
-  add_new_transaction: "Add new transaction"
-  profile: "Profile"
-  sign_in: "Sign in"
-  sign_up: "Sign up"
-  sign_out: "Sign out"
-  home: "Home"
-  about: "About"
-  users: "Users"
-  welcome_to: "Welcome to the"
-  or: "or"
+ru:
+  hello: "Здравствуйте"
+  add_new_transaction: "Добавить новую транзакцию"
+  profile: "Профиль"
+  sign_in: "Войти"
+  sign_up: "Зарегистрироваться"
+  sign_out: "Выйти"
+  home: "Домой"
+  about: "О программе"
+  users: "Пользователи"
+  welcome_to: "Добро пожаловать в"
+  or: "или"
